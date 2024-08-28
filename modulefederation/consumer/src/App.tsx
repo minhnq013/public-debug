@@ -2,9 +2,9 @@ import { Suspense, lazy, useEffect } from "react";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { init, loadShareSync } from "@module-federation/enhanced/runtime";
-import Button from "federation_provider/button";
-import Main from "federation_provider";
+import { init } from "@module-federation/enhanced/runtime";
+// import Button from "federation_provider/button";
+// import Main from "federation_provider";
 
 const federationHost = init({
   name: "myApp",
@@ -14,6 +14,7 @@ const federationHost = init({
       // mf-manifest.json is a file type generated in the new version of Module Federation build tools, providing richer functionality compared to remoteEntry
       // Preloading depends on the use of the mf-manifest.json file type
       entry: "http://localhost:3000/mf-manifest.json",
+      
     },
   ],
   shared: {
@@ -29,7 +30,7 @@ export const RuntimeTest = React.lazy(() =>
   federationHost
     .loadRemote<{
       default: React.ComponentType<any>;
-    }>("fedcon")
+    }>("fedcon/main")
     .then((md) => ({ default: md?.default ?? Placeholder }))
 );
 
