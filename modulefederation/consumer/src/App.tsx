@@ -1,4 +1,3 @@
-import "./App.css";
 import { Suspense, lazy, useEffect } from "react";
 
 import * as React from "react";
@@ -18,26 +17,8 @@ const federationHost = init({
     },
   ],
   shared: {
-    react: {
-      version: "17.0.3",
-      scope: "default",
-      lib: () => React,
-      shareConfig: {
-        singleton: true,
-        requiredVersion: "^17.0.0",
-        eager: true,
-      },
-    },
-    "react-dom": {
-      version: "17.0.3",
-      scope: "default",
-      lib: () => ReactDOM,
-      shareConfig: {
-        singleton: true,
-        requiredVersion: "^17.0.0",
-        eager: true,
-      },
-    },
+    react: React,
+    "react-dom": ReactDOM,
   },
 });
 

@@ -19,8 +19,7 @@ export default defineConfig({
         new ModuleFederationPlugin({
           name: "federation_provider",
           exposes: {
-            "./button": "./src/button.tsx",
-            ".": "./src/Main.tsx",
+            "./main": "./src/Main.tsx",
             // secondButton: "./src/secondButton.tsx",
           },
           shared: ["react", "react-dom"],
